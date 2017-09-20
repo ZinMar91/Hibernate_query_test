@@ -1,0 +1,14 @@
+Libraries
+______
+Struts2 + Hibernate 4.3.1 + Mysql db connector
+
+Queries type
+___________
+1-> session.getNamedQuery("query_name")
+2-> Query q = session.createQuery("hql_query")
+3-> SQLQuery q = session.createSQLQuery("sql_query") >>> need >>> q.addEntity(Customer.class)
+Project information
+_______________
+h01  - Hibernate_Query
+h02  - Hibernate_CreateQuery
+h03  - Hibernate_NativeQuery

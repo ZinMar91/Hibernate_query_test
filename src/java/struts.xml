@@ -1,0 +1,160 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="h01_index">
+            <result>/h01/index_h01.jsp</result>
+        </action>
+        <action name="h02_index">
+            <result>/h02/index_h02.jsp</result>
+        </action>
+        <action name="h03_index">
+            <result>/h03/index_h03.jsp</result>
+        </action>
+        <action name="h04_index">
+            <result>/h04/index_h04.jsp</result>
+        </action>
+    </package>
+    
+    <package name="h01" extends="struts-default">               
+        <action name="insert">
+            <result>/h01/insertdata.jsp</result>
+        </action>
+        <action  name="add">
+            <result>/h01/SearchByAddress.jsp</result>
+        </action>
+        <action name="name">
+            <result>/h01/SearchByName.jsp</result>
+        </action>
+        <action  name="email">
+            <result>/h01/SearchByEmail.jsp</result>
+        </action>
+	      	        
+        <action name="index">
+            <result>/h01/index_h01.jsp</result>
+        </action>
+	      	     
+        <action name="insertcustomer" method="insertcustomer" class="h01.action.CustomerAction">
+            <result name="success">/h01/insertsuccess.jsp</result>
+        </action>
+        <action name="byAddress" class="h01.action.CustomerAction" method="searchAddress">
+            <result>/h01/retrieve_success.jsp</result>
+        </action>
+	      
+        <action name="byName" class="h01.action.CustomerAction" method="searchName">
+            <result>/h01/retrieve_success.jsp</result>
+        </action>	   
+	      
+        <action name="byEmail" class="h01.action.CustomerAction" method="searchEmail">
+            <result>/h01/retrieve_success.jsp</result>
+        </action>	      
+	      
+        <action name="Count" class="h01.action.CustomerAction" method="countCustomer">
+            <result>/h01/retrieve_count.jsp</result>
+        </action>	
+        <action  name="Count1" class="h01.action.CustomerAction" method="countCustomer1">
+            <result>/h01/retrieve_iterator.jsp</result>
+        </action>
+    </package>
+    
+    <package name="h02" extends="struts-default">               
+        <action name="h02_insert">
+            <result>/h02/insert.jsp</result>
+        </action>
+        <action name="h02_search">
+            <result>/h02/search.jsp</result>
+        </action>
+        <action name="h02_showall">
+            <result>/h02/searchall.jsp</result>
+        </action>
+        <action name="h02_update">
+            <result>/h02/update.jsp</result>
+        </action>
+        <action name="h02_delete">
+            <result>/h02/delete.jsp</result>
+        </action>
+        <action name="h02_InsertData" class="h02.action.StudentAction" method="insert">
+            <result name="success">/h02/insert_success.jsp</result>
+            <result name="error">/h02/insert_error.jsp</result>
+        </action>
+        <action name="h02_SearchData" class="h02.action.StudentAction" method="search_student">
+            <result name="success">/h02/search_success.jsp</result>
+            <result name="error">/h02/search_error.jsp</result>
+        </action>
+        <action name="h02_showallstudent" class="h02.action.StudentAction" method="show_all_student">
+            <result>/h02/showallstudent.jsp</result>
+            <result name="error">/h02/searchall_error.jsp</result>
+        </action>
+        <action name="h02_updateData" class="h02.action.StudentAction" method="updatename">
+            <result name="success">/h02/updatesuccess.jsp</result>
+            <result name="error">/h02/update_error.jsp</result>
+        </action>
+        <action name="h02_deleteData" class="h02.action.StudentAction" method="deletedata">
+            <result name="success">/h02/delete_Success.jsp</result>
+            <result name="error">/h02/delete_error.jsp</result>
+        </action>
+    </package>
+    
+    <package name="h03" extends="struts-default">
+        <action name="createparty">
+            <result>/h03/createParty.jsp</result>
+        </action>
+        
+        <action name="createpeople" method="readylist" class="h03.action.VoteAction">
+            <result>/h03/createPeople.jsp</result>
+        </action>
+        
+        <action name="searchvoting">
+            <result>/h03/Search.jsp</result>
+        </action>
+        
+        <action name="insertparty" method="insertParty" class="h03.action.PartyAction">
+            <result>/h03/createParty_success.jsp</result>
+            <result name="error">/views/createParty_error.jsp</result>
+        </action>
+        
+        <action name="insertvote" method="insertPeople" class="h03.action.VoteAction">
+            <result>/h03/createPeople_success.jsp</result>
+            <result name="input">/h03/createPeople.jsp</result>
+            <result name="error">/h03/createPeople_error.jsp</result>
+        </action>
+        
+        <action name="searchnal" method="search" class="h03.action.SearchAction">
+            <result>/h03/search_success.jsp</result>
+            <result name="error">/h03/search_error.jsp</result>
+        </action>
+    </package>
+    
+    <package name="h04" namespace="/" extends="struts-default">   
+        <action name="h04_insertphone">
+            <result>/h04/insertphone.jsp</result>
+        </action>
+        
+        <action name="h04_index1">
+            <result>/h04/index.jsp</result>
+        </action>
+        <action name="h04_insertcustomer">
+            <result>/h04/insertcustomer.jsp</result>
+        </action>
+        
+        <action name="h04_searchnocity">
+            <result>/h04/Search.jsp</result>
+        </action>
+        
+        <action name="h04_inserttype" method="phoneinsert" class="h04.action.PhoneAction">
+            <result>/h04/successphone.jsp</result>
+            <result name="error">/h04/errorphone.jsp</result>
+        </action>
+        <action name="h04_customerdata" method="customersave" class="h04.action.CustomerAction">
+            <result>/h04/successcustomer.jsp</result>
+            <result name="error">/h04/errorcustomer.jsp</result>
+        </action>              
+        <action name="h04_Searchbynocity" method="cityphnosearch" class="h04.action.SearchAction">
+            <result name="success">/h04/successearch.jsp</result>
+        </action>
+    </package>
+</struts>
